@@ -1,0 +1,23 @@
+stages:
+  - build
+  - test
+
+build-job:
+  stage: build
+  tags:
+    - netology
+  script:
+    - echo "Building"
+    - mkdir -p build
+    - touch build/info.txt
+  artifacts:
+    paths:
+      - build/
+
+test-job:
+  stage: test
+  tags:
+    - netology
+  script:
+    - echo "Testing"
+    - test -f build/info.txt
